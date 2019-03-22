@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% block content %}
+<nav>
+    <a class="current">Home</a>
+    <a href="{{ url_for('login') }}">Log in</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('cart') }}">Cart</a>
+</nav>
+    {% for record in records %}
+        <div class="vinyls-main">
+        {% if record.id % 2 == 0 %}
+            <div class="main-right">
+                <div class="text-right">
+                <p>£{{ record.price }}</p>
+                <p>{{ record.artist }}</p>
+                </div>
+                <div class="img-right">
+                    {% if record.id == 2 %}
+                        <div class="text-right"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Kings of Metal') }}"><h1 class="record-name">{{ record.name }}</h1></a></div>
+                        <a class='record-name' href="{{ url_for('product', title='Kings of Metal') }}"><img class="cover-main" src="{{ record.picture }}"></a>
+                        <a class="add-cart text-right" href="{{ url_for('cart', item_id=2)}}">Add to cart</a>
+                    {% elif record.id == 4 %}
+                        <div class="text-right"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Dark Side of the Moon') }}"><h1 class="record-name">{{ record.name }}</h1></a></div>
+                        <a class='record-name' href="{{ url_for('product', title='Dark Side of the Moon') }}"><img class="cover-main" src="{{ record.picture }}"></a>
+                        <a class="add-cart text-right" href="{{ url_for('cart', item_id=4)}}">Add to cart</a>
+                    {% elif record.id == 6 %}
+                         <div class="text-right"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='British Steel') }}"><h1 class="record-name">{{ record.name }}</h1></a></div>
+                        <a class='record-name' href="{{ url_for('product', title='British Steel') }}"><img class="cover-main" src="{{ record.picture }}"></a>
+                        <a class="add-cart text-right" href="{{ url_for('cart', item_id=6)}}">Add to cart</a>
+                    {% elif record.id == 8 %}
+                         <div class="text-right"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='A Kind of Magic') }}"><h1 class="record-name">{{ record.name }}</h1></a></div>
+                        <a class='record-name' href="{{ url_for('product', title='A Kind of Magic') }}"><img class="cover-main" src="{{ record.picture }}"></a>
+                        <a class="add-cart text-right" href="{{ url_for('cart', item_id=8)}}">Add to cart</a>
+                    {% elif record.id == 10 %}
+                         <div class="text-right"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Paranoid') }}"><h1 class="record-name">{{ record.name }}</h1></a></div>
+                        <a class='record-name' href="{{ url_for('product', title='Paranoid') }}"><img class="cover-main" src="{{ record.picture }}"></a>
+                        <a class="add-cart text-right" href="{{ url_for('cart', item_id=10)}}">Add to cart</a>
+                    {% elif record.id == 12 %}
+                         <div class="text-right"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Carolus Rex') }}"><h1 class="record-name">{{ record.name }}</h1></a></div>
+                        <a class='record-name' href="{{ url_for('product', title='Carolus Rex') }}"><img class="cover-main" src="{{ record.picture }}"></a>
+                        <a class="add-cart text-right" href="{{ url_for('cart', item_id=12)}}">Add to cart</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="main-left">
+                    {% if record.id == 1 %}
+                        <div class="img-left"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Brothers in Arms') }}"><img class="cover-main"src="{{ record.picture }}"></div>
+                        <div class="text-left"><h1>{{ record.name }}</h1></a>
+                        <a class="add-cart text-left" href="{{ url_for('cart', item_id=1)}}">Add to cart</a>
+                    {% elif record.id == 3 %}
+                        <div class="img-left"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Super Trouper') }}"><img class="cover-main"src="{{ record.picture }}"></div>
+                        <div class="text-left"><h1>{{ record.name }}</h1></a>
+                        <a class="add-cart text-left" href="{{ url_for('cart', item_id=3)}}">Add to cart</a>
+                    {% elif record.id == 5 %}
+                        <div class="img-left"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Reggatta de Blanc') }}"><img class="cover-main"src="{{ record.picture }}"></div>
+                        <div class="text-left"><h1>{{ record.name }}</h1></a>
+                        <a class="add-cart text-left" href="{{ url_for('cart', item_id=5)}}">Add to cart</a>
+                    {% elif record.id == 7 %}
+                        <div class="img-left"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Journey to the Centre of the Earth') }}"><img class="cover-main"src="{{ record.picture }}"></div>
+                        <div class="text-left"><h1>{{ record.name }}</h1></a>
+                        <a class="add-cart text-left" href="{{ url_for('cart', item_id=7)}}">Add to cart</a>
+                    {% elif record.id == 9 %}
+                        <div class="img-left"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Led Zeppelin II') }}"><img class="cover-main"src="{{ record.picture }}"></div>
+                        <div class="text-left"><h1>{{ record.name }}</h1></a>
+                        <a class="add-cart text-left" href="{{ url_for('cart', item_id=9)}}">Add to cart</a>
+                    {% elif record.id == 11 %}
+                        <div class="img-left"><a class='record-name' id="{{ record.name }}" href="{{ url_for('product', title='Use Your Illusion II') }}"><img class="cover-main"src="{{ record.picture }}"></div>
+                        <div class="text-left"><h1>{{ record.name }}</h1></a>
+                        <a class="add-cart text-left" href="{{ url_for('cart', item_id=11)}}">Add to cart</a>
+                    {% endif %}
+                <p>{{ record.artist }}</p>
+                <p>£{{ record.price }}</p>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    {% endfor %}
+{% endblock content %}
